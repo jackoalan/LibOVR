@@ -1,0 +1,13 @@
+add_subdirectory(CAPI)
+add_subdirectory(Kernel)
+add_subdirectory(Tracking)
+add_library(OVR
+            OVR_CAPI.cpp
+            OVR_JSON.cpp
+            OVR_Profile.cpp
+            OVR_SerialFormat.cpp
+            OVR_Stereo.cpp)
+target_link_libraries(OVR
+                      OVR-CAPI
+                      OVR-Kernel
+                      OVR-Tracking)
