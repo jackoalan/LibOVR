@@ -1,6 +1,10 @@
 add_subdirectory(CAPI)
 add_subdirectory(Kernel)
+add_subdirectory(Displays)
+add_subdirectory(Service)
+add_subdirectory(Net)
 add_subdirectory(Tracking)
+add_subdirectory(Util)
 add_library(OVR
             OVR_CAPI.cpp
             OVR_JSON.cpp
@@ -10,4 +14,8 @@ add_library(OVR
 target_link_libraries(OVR
                       OVR-CAPI
                       OVR-Kernel
-                      OVR-Tracking)
+                      OVR-Displays
+                      OVR-Service
+                      OVR-Net
+                      OVR-Tracking
+                      OVR-Util)
