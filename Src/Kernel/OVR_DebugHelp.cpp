@@ -3165,9 +3165,9 @@ void ExceptionHandler::WriteReport()
             WriteReportLineF("Total virtual memory: %I64d MiB\r\n", memoryStatusEx.ullTotalVirtual / (1024 * 1024));
             WriteReportLineF("Free virtual memory: %I64d MiB\r\n", memoryStatusEx.ullAvailVirtual / (1024 * 1024));
 
-            DISPLAY_DEVICE dd; 
-            memset(&dd, 0, sizeof(DISPLAY_DEVICE));
-            dd.cb = sizeof(DISPLAY_DEVICE);
+            DISPLAY_DEVICEW dd; 
+            memset(&dd, 0, sizeof(DISPLAY_DEVICEW));
+            dd.cb = sizeof(DISPLAY_DEVICEW);
 
             for(int i = 0; EnumDisplayDevicesW(nullptr, (DWORD)i, &dd, EDD_GET_DEVICE_INTERFACE_NAME); ++i)
             {
@@ -3474,7 +3474,7 @@ void ExceptionHandler::WriteReport()
                             HANDLE hProcess = ::OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, pe32.th32ProcessID); // With Windows Vista+ we can use PROCESS_QUERY_LIMITED_INFORMATION.
                             if(hProcess)
                             {
-                                if(GetProcessImageFileName(hProcess, filePathW, (DWORD)OVR_ARRAY_COUNT(filePathW)))
+                                if(GetProcessImageFileNameW(hProcess, filePathW, (DWORD)OVR_ARRAY_COUNT(filePathW)))
                                     pFilePathW = filePathW;
                             }
 

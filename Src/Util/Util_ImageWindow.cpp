@@ -457,7 +457,7 @@ void ImageWindow::OnPaint()
 			tmpString[i] = (WCHAR)textIt->text.GetCharAt( i );
 		}
 					
-		pRT->DrawTextW( tmpString, (UINT32)textIt->text.GetLength(), textFormat,
+		pRT->DrawText( tmpString, (UINT32)textIt->text.GetLength(), textFormat,
 			D2D1::RectF(textIt->x, textIt->y, renderTargetSize.width, renderTargetSize.height), aBrush );
 
 		free( tmpString );
